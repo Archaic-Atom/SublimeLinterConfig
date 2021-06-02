@@ -1,0 +1,46 @@
+[
+    [
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "SublimeLinterConfig",
+                        "children":
+                        [
+                            {
+                                "command": "sublime_linter_config_open_file_actions",
+                                "args": {"file": "${packages}/SublimeCodeIntel/SublimeCodeIntel.sublime-settings"},
+                                "caption": "Open file"
+                            },
+                            {
+                                "command": "sublime_linter_config_create_file_actions",
+                                "args": {"file": "${packages}/SublimeCodeIntel/SublimeCodeIntel.sublime-settings"},
+                                "caption": "Create file"
+                            },
+                            {
+                                "command": "sublime_linter_config_switch_file_actions",
+                                "args": {"file": "${packages}/SublimeCodeIntel/SublimeCodeIntel.sublime-settings"},
+                                "caption": "Switch config file"
+                            },
+                            {
+                                "command": "sublime_linter_config_remove_file_actions",
+                                "args": {"file": "${packages}/SublimeCodeIntel/SublimeCodeIntel.sublime-settings"},
+                                "caption": "Remove config file"
+                            },
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
+]
