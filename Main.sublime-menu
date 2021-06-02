@@ -14,20 +14,20 @@
                         "id": "sublimelinterconfig-settings",
                         "children": [
                             {
-                                "caption": "Settings",
-                                "command": "sublime_linter_config_open_file_actions", "args":
-                                {
-                                    "base_file": "${packages}/SublimeLinter/SublimeLinter.sublime-settings",
-                                    "default": "// SublimeLinter Settings - User\n{\n\t$0\n}\n"
-                                }
+                                "caption": "Open Config File",
+                                "command": "sublime_linter_config_open_file_actions",
                             },
                             {
-                                "caption": "Key Bindings",
-                                "command": "sublime_linter_config_create_file_actions", "args":
-                                {
-                                    "base_file": "${packages}/SublimeLinter/keymaps/Default ($platform).sublime-keymap",
-                                    "default": "${packages}/User/Default ($platform).sublime-keymap"
-                                }
+                                "caption": "Create Config File",
+                                "command": "sublime_linter_config_create_file_actions",
+                            },
+                            {
+                                "caption": "Switch Config File",
+                                "command": "sublime_linter_config_switch_file_actions",
+                            },
+                            {
+                                "caption": "Remove Config File",
+                                "command": "sublime_linter_config_remove_file_actions",
                             }
                         ]
                     }

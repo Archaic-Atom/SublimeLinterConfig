@@ -1,0 +1,18 @@
+[
+        {
+            "caption": "SublimeLinterConfig: Open Config File",
+            "command": "sublime_linter_config_open_file_actions",
+        },
+        {
+            "caption": "SublimeLinterConfig: Create Config File",
+            "command": "sublime_linter_config_create_file_actions",
+        },
+        {
+             "caption": "SublimeLinterConfig: Switch Config File",
+             "command": "sublime_linter_config_switch_file_actions",
+        },
+        {
+            "caption": "SublimeLinterConfig: Remove Config File",
+            "command": "sublime_linter_config_remove_file_actions",
+        }
+]
