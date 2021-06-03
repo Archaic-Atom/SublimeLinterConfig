@@ -64,17 +64,18 @@ class sublime_linter_config_create_file_actions(sublime_plugin.TextCommand):
             return
 
         sublime.run_command("new_window")
-        default_cfg_path = os.path.join(pkg_path, sys_def.DEFAULT_CONFIG_PATH)
-
+        default_cfg_path = os.path.join(pkg_path, sys_def.USER_FOLDER,
+                                        sys_def.DEFAULT_CONFIG_PATH)
+        print(default_cfg_path)
         window = sublime.active_window()
         window.open_file(default_cfg_path)
-        view = window.new_file()
-        view.set_name(line_str)
         window.run_command('set_layout',
                            {"cols": [0.0, 0.5, 1.0],
                             "rows": [0.0, 1.0],
                             "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]}
                            )
+        view = window.new_file()
+        view.set_name(line_str)
 
 
 class sublime_linter_config_switch_file_actions(sublime_plugin.TextCommand):
