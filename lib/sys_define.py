@@ -8,7 +8,9 @@ DEFAULT_CONFIG_PATH = 'SublimeLinterConfig/default_files/SublimeLinter.sublime-s
 # path
 USER_FOLDER = 'User/'
 FILE_NAME_FORMAT = '*_sublimelinter_cfg.sublime-settings'
+SUBLIME_LINTER_NAME = 'SublimeLinter.sublime-settings'
 
 
 # Encoder
 INVAILD_ID = 0
+DELAY_TIME = 500
