@@ -136,7 +136,7 @@ class sublime_linter_config_switch_file_actions(sublime_plugin.TextCommand):
         sublime_linter_config_switch_file_actions._RES_LIST = []
         pkg_path = sublime.packages_path()
         cfg_path = os.path.join(pkg_path, sys_def.USER_FOLDER)
-        default_cfg_path = os.path.join(cfg_path, sys_def.SUBLIME_LINTER_NAME)
+        default_cfg_path = os.path.join(cfg_path, 'SublimeLinter.sublime-settings')
         Command.remove_file(default_cfg_path)
         file_path = os.path.join(cfg_path, file_name)
         Command.copy_file(file_path, default_cfg_path)
