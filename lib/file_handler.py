@@ -21,7 +21,3 @@ class FlieHandler(object):
             res_list.append(file_name)
 
         return res_list
-
-    @staticmethod
-    def download_setting(url: str, path: str) -> None:
-        pass
