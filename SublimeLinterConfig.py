@@ -3,9 +3,15 @@ import sublime
 import sublime_plugin
 
 import os
-from .lib import sys_define as sys_def
-from .lib.file_handler import FlieHandler
-from .lib.command import Command
+
+try:
+    from .lib import sys_define as sys_def
+    from .lib.file_handler import FlieHandler
+    from .lib.command import Command
+except ImportError:
+    from lib import sys_define as sys_def
+    from lib.file_handler import FlieHandler
+    from lib.command import Command
 
 
 def _show_config_file_panel(view: object, call_back_func: object) -> list:
