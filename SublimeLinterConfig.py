@@ -37,14 +37,14 @@ def _check_idx(idx: int) -> bool:
 def _open_setting(file_name) -> None:
     pkg_path = sublime.packages_path()
     cfg_path = os.path.join(pkg_path, sys_def.USER_FOLDER)
-    print(os.path.realpath(__file__))
+    # print(os.path.realpath(__file__))
 
 
     default_cfg_path = os.path.join(pkg_path, sys_def.DEFAULT_CONFIG_PATH)
-    print(default_cfg_path)
+    # print(default_cfg_path)
     window = sublime.active_window()
-    
-    view = window.open_file(sys_def.DEFAULT_CONFIG_PATH)
+
+    view = window.open_file(default_cfg_path)
     view.set_read_only(True)
 
     window.run_command('set_layout',
@@ -59,7 +59,7 @@ def _open_setting(file_name) -> None:
 class sublime_linter_config_open_file_actions(sublime_plugin.TextCommand):
     _RES_LIST = []
 
-    def run(self, edit: object):
+    def run(self, edit: object) -> None:
         # self.view.insert(edit, 0, "Hello, World1!")
         view = self.view
         sublime_linter_config_open_file_actions._RES_LIST = \
@@ -67,7 +67,7 @@ class sublime_linter_config_open_file_actions(sublime_plugin.TextCommand):
                                     sublime_linter_config_open_file_actions._on_done)
 
     @staticmethod
-    def _on_done(idx):
+    def _on_done(idx) -> None:
         # type: (int) -> None
         if not _check_idx(idx):
             return
@@ -80,7 +80,7 @@ class sublime_linter_config_open_file_actions(sublime_plugin.TextCommand):
 class sublime_linter_config_create_file_actions(sublime_plugin.TextCommand):
     _RES_LIST = []
 
-    def run(self, edit):
+    def run(self, edit) -> None:
         # self.view.insert(edit, 0, "Hello, World2!")
         view = self.view
         window = view.window()
@@ -91,7 +91,7 @@ class sublime_linter_config_create_file_actions(sublime_plugin.TextCommand):
                                 None)
 
     @staticmethod
-    def _on_done(line_str: str):
+    def _on_done(line_str: str) -> None:
         pkg_path = sublime.packages_path()
         cfg_path = os.path.join(pkg_path, sys_def.USER_FOLDER)
         sublime_linter_config_create_file_actions._RES_LIST = FlieHandler.find_file(
@@ -112,14 +112,14 @@ class sublime_linter_config_create_file_actions(sublime_plugin.TextCommand):
                             200)
 
     @staticmethod
-    def _set_template():
+    def _set_template() -> None:
         window = sublime.active_window()
         view = window.active_view()
         view.run_command('sublime_linter_config_write_default_file_actions')
 
 
 class sublime_linter_config_write_default_file_actions(sublime_plugin.TextCommand):
-    def run(self, edit):
+    def run(self, edit:object) -> None:
         view = self.view
         view.insert(edit, 0, "// sublime linter config \n{\n\n}\n")
 
@@ -127,14 +127,14 @@ class sublime_linter_config_write_default_file_actions(sublime_plugin.TextComman
 class sublime_linter_config_switch_file_actions(sublime_plugin.TextCommand):
     _RES_LIST = []
 
-    def run(self, edit):
+    def run(self, edit: object) -> object:
         view = self.view
         sublime_linter_config_switch_file_actions._RES_LIST = \
             _show_config_file_panel(view,
                                     sublime_linter_config_switch_file_actions._on_done)
 
     @staticmethod
-    def _on_done(idx):
+    def _on_done(idx:int) -> object:
         # type: (int) -> None
         if not _check_idx(idx):
             return
@@ -156,14 +156,14 @@ class sublime_linter_config_switch_file_actions(sublime_plugin.TextCommand):
 class sublime_linter_config_remove_file_actions(sublime_plugin.TextCommand):
     _RES_LIST = []
 
-    def run(self, edit):
+    def run(self, edit: object) -> None:
         view = self.view
         sublime_linter_config_remove_file_actions._RES_LIST = \
             _show_config_file_panel(view,
                                     sublime_linter_config_remove_file_actions._on_done)
 
     @staticmethod
-    def _on_done(idx):
+    def _on_done(idx: int) -> None:
         # type: (int) -> None
         if not _check_idx(idx):
             return
