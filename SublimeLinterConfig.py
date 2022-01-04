@@ -53,7 +53,6 @@ def _create_default_cfg_file():
     url = urllib.request.urlopen(sys_def.SETTING_URL)
     default_cfg_path = os.path.join(pkg_path,
         sys_def.DEFAULT_DIR + sys_def.DEFAULT_CONFIG_DIR + sys_def.DEFAULT_CONFIG_FIEL_NAME)
-    print(default_cfg_path)
 
     with ZipFile(BytesIO(url.read())) as my_zip_file:
         for contained_file in my_zip_file.namelist():
