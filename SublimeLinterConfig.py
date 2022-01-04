@@ -38,7 +38,7 @@ def _check_idx(idx: int) -> bool:
 
 
 def _create_default_cfg_file():
-    pkg_path = '/Users/rhc/Library/Application Support/Sublime Text 3/Packages'
+    pkg_path = sublime.packages_path()
     plugin_path = os.path.join(pkg_path, sys_def.DEFAULT_DIR)
     cfg_path = os.path.join(pkg_path, sys_def.DEFAULT_DIR + sys_def.DEFAULT_CONFIG_DIR)
 
