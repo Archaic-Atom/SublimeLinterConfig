@@ -1,4 +1,5 @@
-{   "description": "Sublime Linter Config", 
+{   
+    "description": "Sublime Linter Config", 
     "sublime_text": "*", 
     "url": "https://github.com/Archaic-Atom/SublimeLinterConfig/issues", 
     "platforms": ["*"], 

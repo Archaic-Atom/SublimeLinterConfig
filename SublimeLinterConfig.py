@@ -3,6 +3,9 @@ import sublime
 import sublime_plugin
 
 import os
+from zipfile import ZipFile
+import urllib.request
+from io import BytesIO
 
 try:
     from .lib import sys_define as sys_def
@@ -34,9 +37,41 @@ def _check_idx(idx: int) -> bool:
     return idx >= sys_def.INVAILD_ID
 
 
+def _create_default_cfg_file():
+    pkg_path = '/Users/rhc/Library/Application Support/Sublime Text 3/Packages'
+    plugin_path = os.path.join(pkg_path, sys_def.DEFAULT_DIR)
+    cfg_path = os.path.join(pkg_path, sys_def.DEFAULT_DIR + sys_def.DEFAULT_CONFIG_DIR)
+
+    folder = os.path.exists(plugin_path)
+    if not folder:
+        os.makedirs(plugin_path)
+
+    folder = os.path.exists(cfg_path)
+    if not folder:
+        os.makedirs(cfg_path)
+
+    url = urllib.request.urlopen(sys_def.SETTING_URL)
+    default_cfg_path = os.path.join(pkg_path,
+        sys_def.DEFAULT_DIR + sys_def.DEFAULT_CONFIG_DIR + sys_def.DEFAULT_CONFIG_FIEL_NAME)
+    print(default_cfg_path)
+
+    with ZipFile(BytesIO(url.read())) as my_zip_file:
+        for contained_file in my_zip_file.namelist():
+            with open(default_cfg_path, "wb") as output:
+                for line in my_zip_file.open(contained_file).readlines():
+                    # print(line)
+                    output.write(line)
+                output.close()
+
 def _open_setting(file_name) -> None:
     pkg_path = sublime.packages_path()
     cfg_path = os.path.join(pkg_path, sys_def.USER_FOLDER)
+
+    default_cfg_path = os.path.join(pkg_path,
+        sys_def.DEFAULT_DIR + sys_def.DEFAULT_CONFIG_DIR + sys_def.DEFAULT_CONFIG_FIEL_NAME)
+
+    if not os.path.exists(default_cfg_path):
+        _create_default_cfg_file()
 
     window = sublime.active_window()
     view = window.open_file(sys_def.DEFAULT_CONFIG_PATH)
