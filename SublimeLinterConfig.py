@@ -43,7 +43,8 @@ def _open_setting(file_name) -> None:
     default_cfg_path = os.path.join(pkg_path, sys_def.DEFAULT_CONFIG_PATH)
     print(default_cfg_path)
     window = sublime.active_window()
-    view = window.open_file(default_cfg_path)
+    
+    view = window.open_file(sys_def.DEFAULT_CONFIG_PATH)
     view.set_read_only(True)
 
     window.run_command('set_layout',
