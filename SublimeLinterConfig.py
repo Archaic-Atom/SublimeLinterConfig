@@ -31,9 +31,7 @@ def _show_config_file_panel(view: object, call_back_func: object) -> list:
 
 
 def _check_idx(idx: int) -> bool:
-    if idx < sys_def.INVAILD_ID:
-        return False
-    return True
+    return idx >= sys_def.INVAILD_ID
 
 
 def _open_setting(file_name) -> None:
